@@ -30,7 +30,7 @@ Thanks to
 * Associated Press API key (for ingestion)
 * Amazon S3 bucket (for baking to static)    
 
-If you're use S3, then you need to add these to your `.bash_profile` (Mac) or `.bashrc` (Ubuntu) file with their respective values:
+If you're using an S3 bucket, then you need to add these to your `.bash_profile` (Mac) or `.bashrc` (Ubuntu) file with their respective values:
 
      S3_ACCESS_KEY=''
      S3_SECRET_KEY=''
