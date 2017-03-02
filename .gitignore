@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+.DS_Store
+settings_private*
+static/
+snapshots/tmp/
+snapshotsall/
+migrations/

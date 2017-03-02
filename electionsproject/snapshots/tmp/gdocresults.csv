@@ -1,0 +1,3 @@
+id,last,first,reportingunitname,level,racetype,officename,seatname,seatnum,precinctsreporting,precinctsreportingpct,precinctstotal,votecount,votepct,winner,ballotorder,description,electiondate,fipscode,incumbent,is_ballot_measure,nonpartisan,party,statepostal,uncontested,votingsystem,lastupdated
+201605242,Testlast,Testfirst,Laurens County,County,Primary,County Commissioner,District 2,3,0,0,0,0,0,False,3,test,2016-05-24,25634,False,False,False,Dem,GA,False,winner-take-all,2016-03-29 16:42:11
+201605243,Testinglast,Testing,Laurens County,County,Primary,County Commissioner,District 2,3,0,0,0,0,0,False,4,another test,2016-05-24,45621,True,False,False,Dem,GA,False,winner-take-all,2016-03-29 16:42:12
