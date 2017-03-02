@@ -2,7 +2,6 @@
 
 Execute `vim ~/.bashrc` in your terminal and paste the following (updating the variables as needed):
 
-	````
 	# for all envs
 	export AP_API_KEY=<YOUR_AP_API_KEY>
 	export AP_TEST=False
@@ -13,7 +12,6 @@ Execute `vim ~/.bashrc` in your terminal and paste the following (updating the v
 
 	# server
 	# export SAVER_PATH=/home/ubuntu/mccelections/electionsproject/snapshots
-	```
 
 We're not using these for now because this should be done off-server
 
