@@ -2,7 +2,7 @@
 
 `mccelections` is a Django application that can be used for any of the automated or manual election result-related purposes:
 
-* ingesting AP election results using the [Elex API](https://github.com/newsdev/elex) wrapper
+* ingesting AP election results using the [Elex API wrapper](https://github.com/newsdev/elex)
 * ingesting results that have been hand-keyed or scraped into a Google Sheet (Google Sheets can parse HTML, XML and other structured data formats simply by setting up the proper formula)
 * writing custom Python scrapers to ingest results data
 * hand-keying results data directly into the Django admin
