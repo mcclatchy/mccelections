@@ -30,7 +30,7 @@ MCC_API_BASE_URL = "127.0.0.1:8000/api"
 # SECURITY WARNING: keep the secret key used in production secret!
 # secret_key_var = os.environ['SECRET_KEY_MCCELECTIONS']
 # SECRET_KEY = secret_key_var
-SECRET_KEY = '#r6y=n_5(^h^*6v3r7q=l@r7o33xt*&tooj)aeggw-r)tw(-$w'
+SECRET_KEY = '<SECRET_KEY>'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # debug_setting = os.environ['DEBUG_SETTING_MCCELECTIONS']
