@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
         for state in mcclatchy_states:
 
-            filename = "/Users/glinch/code/mccelections-misc/embed_ap/%s.html" % (state)
+            filename = "/<YOUR>/<PATH>/mccelections-misc/embed_ap/%s.html" % (state)
 
             with open(filename, "w") as file:
 
