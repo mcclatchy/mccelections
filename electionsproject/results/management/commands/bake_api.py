@@ -39,7 +39,7 @@ def bake_api_to_static(electiondate_arg, model_arg):
         query_string = 'raceid=' + race.raceid
         ## if it's not prod, use the test API bc we can't curl the localhost one
         if mccelectionsenv != 'prod':
-            MCC_API_BASE_URL = 'http://mccelections-test.mcclatchydc.com/api'
+            MCC_API_BASE_URL = 'http://<YOUR_DOMAIN>.com/api'
         ## lowercase the model name to make sure it works in the URL
         model = model_arg.lower()
         ## swap resultstage, which is the correct model name, with resultlive, which is the resource/endpoint name
