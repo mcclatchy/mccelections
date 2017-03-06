@@ -496,6 +496,6 @@ You should be all set to start add or ingesting data! To test the main URLs:
 * `/admin` - add/update/delete data
 * `/api/v1/<model>/?format=json` - API url pattern
 
-For more information on how to use the app as a developer, visit the [developer instructions](https://github.com/mcclatchy/mccelections/wiki).
+For more information on how to use the app as a developer, visit the [developer instructions](https://github.com/mcclatchy/mccelections/wiki/Developer-instructions).
 
 Questions? Suggestions? Submit a pull request or contact: greglinch [at] gmail [dot] com
