@@ -187,7 +187,7 @@ Make sure you're in the correct directory, such as root
 
 Clone the repo
 
-    git clone git@github.com:greglinch/mccelections.git
+    git clone git@github.com:mcclatchy/mccelections.git
 
 Change into that directory
 
