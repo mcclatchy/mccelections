@@ -63,8 +63,12 @@ class Command(BaseCommand):
                 call_command("import_ap_elex", "resultmanual", electiondate_arg)
 
                 ## calculate votepct and precinctsreportingpct
-                call_command("calculate_gdoc", electiondate_arg)
-
+                    ## this raises a TypeError before data is entered bc the values are None, so need to handle this -- try/except pass is here as temp solution
+                try:
+                    call_command("calculate_gdoc", electiondate_arg)
+                except:
+                    pass
+                
                 ## load distinct races from ResultCsv into Races
                 from results.election_loaders import load_resultcsv_to_race
                 message = "\n---------- ResultCsv import to Races ------------"
