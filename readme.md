@@ -11,6 +11,7 @@ mccelections is a Django application that can be used for any of the following e
 * automatically simulating manual data changes
 * storing AP, scraped, manual or any combination of data in a unified format
 * outputting this data as a RESTful API
+* sending updates to Slack
 
 # Setting up and running mccelections
 
