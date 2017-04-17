@@ -792,7 +792,14 @@ class ResultManual(ResultLive):
     reportingunitname_reformatted.short_description = 'Reporting unit'
 
     def __unicode__(self):
-        return "Candidate: %s , Race: %s , RU: %s" % (self.candidate_name_fk, self.race_name_fk, self.reporting_unit_fk)
+        if self.gdoc_import:
+            if self.first:
+                candidate_name = '%s %s' % (self.first, self.last)
+            else:
+                candidate_name = self.last
+            return "Candidate: %s, Race: %s , RU: %s" % (candidate_name, self.officename, self.reportingunitname)
+        else:
+            return "Candidate: %s , Race: %s , RU: %s" % (self.candidate_name_fk, self.race_name_fk, self.reporting_unit_fk)
 
     class Meta:
         verbose_name = 'STEP 8: Results - manual'
