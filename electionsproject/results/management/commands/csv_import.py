@@ -25,7 +25,8 @@ def import_csv(electiondate_arg):
         slackbot(message)
 
     ## QUESTION: add a filter for "live"? if so, will user flip that or will be done automatically? (e.g. via start/end time or looking if votecount for a state is greater than zero) 
-    elections = Election.objects.filter(dataentry="manual", electiondate=electiondate_arg, url__contains="output=csv")
+        ## Yes, I've added this so the script doesn't get tripped up if there are both test and non-test election objects created
+    elections = Election.objects.filter(dataentry="manual", electiondate=electiondate_arg, live=True, url__contains="output=csv")
     elections_count = elections.count()
 
     if elections_count > 1:
