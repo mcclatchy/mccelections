@@ -9,27 +9,31 @@ from results.calculations import calculated_percent
 def calculate_precinctsreportingpct(electiondate_arg):
     gdoc_results = ResultManual.objects.filter(electiondate=electiondate_arg, gdoc_import=True)
 
-    message = "precinctsreportingpct"
+    message = 'PRECINTS REPORTING PERCENT'
     slackbot(message)
     start_time = timezone.localtime(timezone.now())
-    start_message = '\nStarted calculations:\t' + str(unicode(start_time))
+    start_message = 'Started calculations:\t' + str(unicode(start_time))
     message = start_message
     slackbot(message)
 
     for result in gdoc_results:
-	    if result.precinctsreporting:        
-	        result.precinctsreportingpct = calculated_percent(result.precinctsreporting, result.precinctstotal)
-	    elif result.precinctsreporting == None:
-	        result.precinctsreportingpct = None
+        precincts_reporting = result.precinctsreporting
+        precincts_total = result.precinctstotal
+        precincts_reporting_pct = result.precinctsreportingpct
 
-	    result.save()
+        if precincts_reporting and precincts_total:
+            precincts_reporting_pct = calculated_percent(precincts_reporting, precincts_total)
+        elif result.precinctsreporting == None:
+            precincts_reporting_pct = None
+
+        result.save()
 
     end_time = timezone.localtime(timezone.now())
     end_message = '\nFinished calculations:\t' + str(unicode(end_time)) + '\n'
     import_length = str(unicode(end_time - start_time)) 
     message = end_message
     slackbot(message)
-    message = 'Import length:\t\t' + import_length
+    message = 'Calculation length:\t\t' + import_length
     slackbot(message)
 
 def calculate_votepct(electiondate_arg):
@@ -37,10 +41,10 @@ def calculate_votepct(electiondate_arg):
 
     calculated_total_votes_dict_list = gdoc_results.values('raceid').annotate(vote_count_total=Sum('votecount'))
 
-    message = "\n\nvotepct"
+    message = '\n\nVOTE PERCENT'
     slackbot(message)
     start_time = timezone.localtime(timezone.now())
-    start_message = '\nStarted calculations:\t' + str(unicode(start_time))
+    start_message = 'Started calculations:\t' + str(unicode(start_time))
     message = start_message
     slackbot(message)
 
@@ -63,6 +67,7 @@ def calculate_votepct(electiondate_arg):
             percent_calculated = calculated_percent(vote_count, vote_total)
             ## get the object id
             resultmanual_obj_id = resultmanual_obj.id
+            # print str(resultmanual_obj) + ": \t" + str(percent_calculated) + "\n"
             ## update the object
             ResultManual.objects.filter(id=resultmanual_obj_id).update(votepct=percent_calculated)
 
@@ -71,7 +76,7 @@ def calculate_votepct(electiondate_arg):
     import_length = str(unicode(end_time - start_time)) 
     message = end_message
     slackbot(message)
-    message = 'Import length:\t\t' + import_length + '\n'
+    message = 'Calculation length:\t\t' + import_length + '\n'
     slackbot(message)
 
 class Command(BaseCommand):
