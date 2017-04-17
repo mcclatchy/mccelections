@@ -32,7 +32,8 @@ class Command(BaseCommand):
         # today_string = str(timezone.localtime(timezone.now()).date())
 
         ## exclude automated elections and election w/ empty URL field
-        elections = Election.objects.filter(electiondate=electiondate_arg, url__contains="output=csv").exclude(dataentry="automated")
+            ## add 'live' here, just like in csv_import so it doesn't look at non-live elections (e.g. when both test and non-test elections created)
+        elections = Election.objects.filter(electiondate=electiondate_arg, url__contains="output=csv", live=True).exclude(dataentry="automated")
 
         message = "\n----------------- MANUAL GDOC IMPORT -----------------\n"
         slackbot(message)
@@ -63,8 +64,12 @@ class Command(BaseCommand):
                 call_command("import_ap_elex", "resultmanual", electiondate_arg)
 
                 ## calculate votepct and precinctsreportingpct
+                    ## this raises a TypeError before data is entered bc the values are None, so need to handle this -- try/except pass is here as temp solution
+                # try:
                 call_command("calculate_gdoc", electiondate_arg)
-
+                # except:
+                    # pass
+                    
                 ## load distinct races from ResultCsv into Races
                 from results.election_loaders import load_resultcsv_to_race
                 message = "\n---------- ResultCsv import to Races ------------"
