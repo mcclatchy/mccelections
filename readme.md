@@ -1,6 +1,6 @@
 # What is mccelections?
 
-`mccelections` is a Django application that can be used for any of the automated or manual election result-related purposes:
+mccelections is a Django application that can be used for any of the following election result-related tasks:
 
 * ingesting AP election results using the [Elex API wrapper](https://github.com/newsdev/elex)
 * ingesting results that have been hand-keyed or scraped into a Google Sheet (Google Sheets can parse HTML, XML and other structured data formats simply by setting up the proper formula)
@@ -11,6 +11,7 @@
 * automatically simulating manual data changes
 * storing AP, scraped, manual or any combination of data in a unified format
 * outputting this data as a RESTful API
+* sending updates to Slack
 
 # Setting up and running mccelections
 
@@ -187,7 +188,7 @@ Make sure you're in the correct directory, such as root
 
 Clone the repo
 
-    git clone git@github.com:greglinch/mccelections.git
+    git clone git@github.com:mcclatchy/mccelections.git
 
 Change into that directory
 
@@ -496,6 +497,6 @@ You should be all set to start add or ingesting data! To test the main URLs:
 * `/admin` - add/update/delete data
 * `/api/v1/<model>/?format=json` - API url pattern
 
-For more information on how to use the app as a developer, visit the [developer instructions](https://github.com/mcclatchy/mccelections/wiki).
+For more information on how to use the app as a developer, visit the [developer instructions](https://github.com/mcclatchy/mccelections/wiki/Developer-instructions).
 
 Questions? Suggestions? Submit a pull request or contact: greglinch [at] gmail [dot] com

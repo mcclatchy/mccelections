@@ -68,8 +68,8 @@ class Command(BaseCommand):
                 # try:
                 call_command("calculate_gdoc", electiondate_arg)
                 # except:
-                    # pass
-                    
+                #     pass
+                
                 ## load distinct races from ResultCsv into Races
                 from results.election_loaders import load_resultcsv_to_race
                 message = "\n---------- ResultCsv import to Races ------------"

@@ -37,7 +37,7 @@ DEBUG = True
 
 # allowedhosts = str(os.environ[$ALLOWED_HOSTS])
 # ALLOWED_HOSTS = allowedhosts
-ALLOWED_HOSTS = ['mccelections-test.mcclatchydc.com']
+ALLOWED_HOSTS = ['<DOMAIN>.com']
 
 
 # Application definition
