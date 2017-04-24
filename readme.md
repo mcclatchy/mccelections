@@ -313,9 +313,16 @@ Update your virtualenv name below for `<YOUR_ENV>` and then paste this block
      master = true
      processes = 5
 
-     socket = %(base)/%(project)/%(project).sock
+     socket = /tmp/%(project).sock
      chmod-socket = 664
+     uid = www-data
+     gid = www-data
      vacuum = true
+
+     harakiri = 120
+     max-requests = 50
+     die-on-term
+     catch-exceptions
 
 Save and close
 
@@ -368,12 +375,12 @@ Paste the following and be sure to replace `<hostname>` with your host. If you w
             add_header       Cache-Control "public";
             expires          1h;
             include          uwsgi_params;
-            uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+            uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
         location /admin {
              include          uwsgi_params;
-             uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+             uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
         location /api/v1/resultlive {
@@ -381,7 +388,7 @@ Paste the following and be sure to replace `<hostname>` with your host. If you w
             add_header       Cache-Control "public";
             expires          1m;
             include          uwsgi_params;
-            uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+            uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
         location /v1/resultlive {
@@ -389,7 +396,7 @@ Paste the following and be sure to replace `<hostname>` with your host. If you w
             add_header       Cache-Control "public";
             expires          1m;
             include          uwsgi_params;
-            uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+            uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
         location /api/v1/resultmanual {
@@ -397,7 +404,7 @@ Paste the following and be sure to replace `<hostname>` with your host. If you w
           add_header       Cache-Control "public";
           expires          1m;
           include          uwsgi_params;
-          uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+          uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
         location /v1/resultmanual {
@@ -405,7 +412,7 @@ Paste the following and be sure to replace `<hostname>` with your host. If you w
           add_header       Cache-Control "public";
           expires          1m;
           include          uwsgi_params;
-          uwsgi_pass       unix:/home/ubuntu/mccelections/electionsproject/electionsproject.sock;
+          uwsgi_pass       unix:/tmp/electionsproject.sock;
         }
 
      }
