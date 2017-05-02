@@ -153,7 +153,7 @@ class Election(CommonInfo):
     ## make an inline: this shouldn't be here -- ResultManual should inherit the election date via the Race selected
     # resultmanual_mm = models.ManyToManyField(ResultManual, blank=True)
     ## should it pull in states via races?
-    state_mm = models.ManyToManyField(State, blank=True, verbose_name="States included", help_text="Select the states included in this election. If not are selected, data for all McClatchy states will be downloaded and imported.")
+    state_mm = models.ManyToManyField(State, blank=True, verbose_name="States included", help_text="Select the states included in this election. If none are selected, data for all McClatchy states will be downloaded and imported.")
     starttime = models.DateTimeField(null=True, blank=True, verbose_name="Start time", help_text="For results, not voting. Can be for test or real election. NOTE: All times must be ET.")
     ## would require "choose multiple" options, which means new model with ManyToManyField
     # state = models.CharField(choices=STATE_POSTAL_CHOICES, max_length=255)
