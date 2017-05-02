@@ -17,8 +17,8 @@ mccelections is a Django application that can be used for any of the following e
 
 Thanks to
 * Digital Ocean's [How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
-* @panuta's [How to setup Django server with virtualenv on Ubuntu Server 12.04](https://gist.github.com/panuta/3075882); for reference, [here's my fork of that](https://gist.github.com/greglinch/2b03e87ecc8d84790cc7)
-* @jeremybowers all of his advice along the way.
+* @[panuta](http://github.com/panuta)'s [How to setup Django server with virtualenv on Ubuntu Server 12.04](https://gist.github.com/panuta/3075882); for reference, [here's my fork of that](https://gist.github.com/greglinch/2b03e87ecc8d84790cc7)
+* @[jeremyjbowers](http://github.com/jeremyjbowers) all of his advice along the way.
 
 ## Initial requirements
 
